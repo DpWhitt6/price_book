@@ -16,7 +16,7 @@ centers_table = [[1,'300mm',0.3],[1,'450mm',0.45],[1,'600mm',0.6]]
 
 
 #print(tabulate(lining_table,lining_headers,tablefmt="github"))
-#print(tabulate(stud_table,stud_headers,tablefmt='github'))
+
 #print(tabulate(centers_table,centers_headers,tablefmt='github'))
 
 def welcome():
@@ -24,7 +24,7 @@ def welcome():
     Welcome message with input request for naming of project
     """
     while True:
-        print(Style.BRIGHT + 'Welcome to Price Book\n')
+        print(Style.BRIGHT + "Welcome to Price Book's Wall calculator \n")
         print('We aim to provide you with market rates (Average rates) and order quantities.\n')
         print('Allowing you to spend more time building than quoting\n')  
         print('\n Let us start bying giving your project a name:')
@@ -35,6 +35,64 @@ def welcome():
 
         print(f'Great you have named your Project {project_name}')
         break
+    #connect to validate_data
     return True
 
-welcome()
+#def vaildate_data
+
+def calc_wall(welcome):
+    """
+    User to input two measurements Length and Height (Max height: 10m)
+    output to be L X H = M2 
+    """
+    while True:
+        print(Fore.BLACK + 'Now let us enter your wall dimensions\n')
+
+        wall_length = input('Wall Length: \n')
+        wall_height = input('Wall height: \n')
+
+        x=float(wall_length)
+        y=float(wall_height)
+
+        sqrd_m = x * y
+
+        print(f'Great! you have {sqrd_m} m2')
+        break
+
+def wall_build_up():
+    """
+    Calculate the material required for the project
+    """
+    print(tabulate(stud_table,stud_headers,tablefmt='github\n'))
+
+    stud = input('Choose a stud ref from the table above: ')
+    s = stud
+    """
+    Loop through stud columns needed and return column 2 and 3 in 
+    below print statement. 
+    """ 
+
+    print(f'You have chosen {}')
+    break
+
+"""
+TO DO:
+Add invalid input for naming purposes - Limit the number of characters
+Add invalid input for numbers only 
+Add function to loop through tabulate to return columns related to 
+    reference 
+Use above function to cycle through Stud, Linnings and centers table.
+Add input options for number of doors and corners in the wall 
+"""
+
+
+
+        
+def main():
+    """
+    Run all program functions
+    """
+    welcome()
+    calc_wall(welcome)
+
+main()
