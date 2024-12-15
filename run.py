@@ -1,5 +1,5 @@
-from colorama import just_fix_windows_console
-just_fix_windows_console()
+import colorama
+from colorama import Fore, Back, Style
 
 from tabulate import tabulate
 lining_headers = ['Ref','Linings','Thickness','m2','Cost']
@@ -14,6 +14,27 @@ stud_table = [[1,'Timber','50mm',7],[2,'Timber','70mm',8.5],[3,'Timber','90mm',1
 centers_headers = ['Ref','Stud Centers','M']
 centers_table = [[1,'300mm',0.3],[1,'450mm',0.45],[1,'600mm',0.6]]
 
-print(tabulate(lining_table,lining_headers,tablefmt="github"))
-print(tabulate(stud_table,stud_headers,tablefmt='github'))
-print(tabulate(centers_table,centers_headers,tablefmt='github'))
+
+#print(tabulate(lining_table,lining_headers,tablefmt="github"))
+#print(tabulate(stud_table,stud_headers,tablefmt='github'))
+#print(tabulate(centers_table,centers_headers,tablefmt='github'))
+
+def welcome():
+    """
+    Welcome message with input request for naming of project
+    """
+    while True:
+        print(Style.BRIGHT + 'Welcome to Price Book\n')
+        print('We aim to provide you with market rates (Average rates) and order quantities.\n')
+        print('Allowing you to spend more time building than quoting\n')  
+        print('\n Let us start bying giving your project a name:')
+        
+        input_name = input('Please enter your project name: \n')  
+
+        project_name = Fore.GREEN + input_name.capitalize()
+
+        print(f'Great you have named your Project {project_name}')
+        break
+    return True
+
+welcome()
