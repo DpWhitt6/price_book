@@ -1,6 +1,8 @@
 import colorama
 from colorama import Fore, Back, Style
 
+import math
+
 from tabulate import tabulate
 lining_headers = ['Ref','Linings','Thickness','m2','Cost']
 lining_table = [[1,'Plasterboard - Std','12.5mm',2.88,25],[2,'Plasterboard - Std','15mm',2.88,35],\
@@ -36,9 +38,7 @@ def welcome():
         print(f'Great you have named your Project {project_name}')
         break
     #connect to validate_data
-    return True
-
-#def vaildate_data
+    return True 
 
 def calc_wall(welcome):
     """
@@ -57,23 +57,29 @@ def calc_wall(welcome):
         sqrd_m = x * y
 
         print(f'Great! you have {sqrd_m} m2')
+        return x
+        return y
         break
 
-def wall_build_up():
+def wall_build_up(calc_wall):
     """
     Calculate the material required for the project
     """
     print(tabulate(stud_table,stud_headers,tablefmt='github\n'))
 
-    stud = input('Choose a stud ref from the table above: ')
+    stud = input('Choose a stud ref from the table above: \n')
     s = stud
+    stud_centers = input('What centers are your studs at?  \n')
+    c = float(stud_centers)
+    #Get data 'x' from calc_wall 
+
+    #number_studs = math.ceil(x/c)
+    return 
     """
     Loop through stud columns needed and return column 2 and 3 in 
     below print statement. 
     """ 
-
-    print(f'You have chosen {}')
-    break
+    
 
 """
 TO DO:
@@ -83,6 +89,9 @@ Add function to loop through tabulate to return columns related to
     reference 
 Use above function to cycle through Stud, Linnings and centers table.
 Add input options for number of doors and corners in the wall 
+Create a table that takes the users inputs to be displayed at the end 
+    i.e. Stud type|Amount needed|Anticpated Cost
+          Linings |Amount needed|Anticpated Cost
 """
 
 
@@ -94,5 +103,6 @@ def main():
     """
     welcome()
     calc_wall(welcome)
+    wall_build_up(calc_wall)
 
 main()
