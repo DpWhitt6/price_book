@@ -29,15 +29,16 @@ def welcome():
         print(Style.BRIGHT + "Welcome to Price Book's Wall calculator \n")
         print('We aim to provide you with market rates (Average rates) and order quantities.\n')
         print('Allowing you to spend more time building than quoting\n')  
-        print('\n Let us start bying giving your project a name:')
+        print('Let us start bying giving your project a name (Atleast 1 character) \n')
         
-        input_name = input('Please enter your project name: \n')  
-
+        input_name = input('Please enter your project name: \n') 
+        while (input_name) < str(1):
+            print('Sorry, you need to enter a project name to proceed.')
+            input_name = input('Please enter your project name: \n')
+            
         project_name = Fore.GREEN + input_name.capitalize()
-
-        print(f'Great you have named your Project {project_name}')
+        print(f'Great you have named your Project {project_name}\n')
         break
-    #connect to validate_data
     return True 
 
 def calc_wall(welcome):
@@ -56,30 +57,43 @@ def calc_wall(welcome):
 
         sqrd_m = x * y
 
-        print(f'Great! you have {sqrd_m} m2')
-        return x
-        return y
+        #class wall_dimensions:
+         #   def m() = sqrd_m:
+
+
+        print(f'Great! you have {sqrd_m} m2\n')
+        
+        print(tabulate(stud_table,stud_headers,tablefmt='github\n'))
+        stud = input('Choose a stud ref from the table above: \n')
+        #for s in range(len(stud_table.column(1))):
+               # print(stud_table.column(2))
+
+        stud_centers = input('What centers are your studs at?  \n')
+        c = float(stud_centers)
+        """
+        Loop through stud columns needed and return column 2 and 3 in 
+        below print statement. 
+        """ 
+        studs = math.ceil(x/c)
+        track = x*2.0
+
+        doors = input('How many doors are in the wall?\n')
+        d = float(doors)
+
+        corners = input('How many corners are there?\n')
+        c = float(corners)
+
+        number_studs = studs+d+c
+
+        print(f'You need {number_studs} number of studs and {track}lm of track')
         break
 
-def wall_build_up(calc_wall):
-    """
-    Calculate the material required for the project
-    """
-    print(tabulate(stud_table,stud_headers,tablefmt='github\n'))
+def linings(calc_wall):
+    while True:
+        linings_measure = m()
+        print(linings_measure)
+        
 
-    stud = input('Choose a stud ref from the table above: \n')
-    s = stud
-    stud_centers = input('What centers are your studs at?  \n')
-    c = float(stud_centers)
-    #Get data 'x' from calc_wall 
-
-    #number_studs = math.ceil(x/c)
-    return 
-    """
-    Loop through stud columns needed and return column 2 and 3 in 
-    below print statement. 
-    """ 
-    
 
 """
 TO DO:
@@ -103,6 +117,6 @@ def main():
     """
     welcome()
     calc_wall(welcome)
-    wall_build_up(calc_wall)
+    linings(calc_wall)
 
 main()
