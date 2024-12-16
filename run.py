@@ -13,10 +13,18 @@ stud_headers= ['Ref', 'Material', 'Thickness', 'Cost m2']
 stud_table = [[1,'Timber','50mm',7],[2,'Timber','70mm',8.5],[3,'Timber','90mm',10],\
     [4,'Timber','150mm',12.5],[5,'Steel','70mm',7],[6,'Steel','90mm',8.5],[7,'Steel','146mm',12.5]]
 
+insulation_headers = ['Selection','Cost m2']
+insulation_table = [['Yes',5.5],['No',0]]
+
 import inquirer
 centers = [
     inquirer.List('centers', message='What centers do you require (m)?',\
         choices=[0.3,0.45,0.6]),
+]
+
+insulation = [
+    inquirer.List('insulation',message='Do you want insulation?',\
+        choices=['Yes','No']),
 ]
 
 #print(tabulate(lining_table,lining_headers,tablefmt="github"))
@@ -52,36 +60,28 @@ def wall_build_up():
         print(Fore.BLACK + 'Now let us enter your wall dimensions\n')
         wall_area, wall_length = meter_square_calc()
 
+            
         print(f'Great! you have {wall_area} m2\n')
-
-        print(tabulate(stud_table,stud_headers,tablefmt='github\n'))
-        stud = input('Choose a stud ref from the table above: \n')
-
-        zero_index_stud = int(stud)-1
-        cost_of_stud = float(stud_table[zero_index_stud][3])
-
-        #Return stud type based on reference.
-
-        answers = inquirer.prompt(centers)
-        cntrs=answers['centers']
-        print(cntrs)
-        """
-        Loop through stud columns needed and return column 2 and 3 in 
-        below print statement. 
-        """ 
+        
+        stud_calc,cost_of_studs = stud_selector()
+        
+        centers_answers = inquirer.prompt(centers)
+        cntrs= centers_answers['centers']
+        doors = float(input('How many doors are in the wall?\n'))
+        corners = float(input('How many corners are there?\n'))
+        #code keeps looping back to meter_square_calc
         studs = math.ceil(wall_length/cntrs)
-        track = wall_length*2.0
+        number_studs = studs+doors+corners
+        print(f'You need {number_studs} studs')
 
-        doors = input('How many doors are in the wall?\n')
-        d = float(doors)
-
-        corners = input('How many corners are there?\n')
-        c = float(corners)
-
-        number_studs = studs+d+c
-
-        print(f'You need {number_studs} number of studs and {track}lm of track')
-        break
+        insulated_Wall = insulation()
+        try:
+         if insulated_Wall == "Yes":
+            wall_area * float(insulation_table[1])
+            print(insulated_Wall)
+        except:
+            print('no ins')
+        
 
 def meter_square_calc():
     #while True: -To be reintroduce for validation 
@@ -90,6 +90,22 @@ def meter_square_calc():
 
     area = wall_length * wall_height
     return area,wall_length
+
+def stud_selector():
+    
+    print(tabulate(stud_table,stud_headers,tablefmt='github\n'))
+    stud = input('Choose a stud ref from the table above: \n')
+
+    zero_index_stud = int(stud)-1
+    cost_of_stud = float(stud_table[zero_index_stud][3])
+
+    return stud,cost_of_stud
+
+def insulation():
+    insulated_answers = inquirer.prompt(insulation)
+    insulated = answers['insulation']
+    print(f'You have chosen {insulated}!')
+    return insulated
 
 
 """
