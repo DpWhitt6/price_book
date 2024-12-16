@@ -33,8 +33,8 @@ def welcome():
         
         input_name = input('Please enter your project name: \n') 
         while (input_name) < str(1):
-            print('Sorry, you need to enter a project name to proceed.')
-            input_name = input('Please enter your project name: \n')
+            print(Fore.RED + 'Sorry, you need to enter a project name to proceed.')
+            input_name = input(Fore.BLACK + 'Please enter your project name: \n')
             
         project_name = Fore.GREEN + input_name.capitalize()
         print(f'Great you have named your Project {project_name}\n')
@@ -48,20 +48,10 @@ def calc_wall(welcome):
     """
     while True:
         print(Fore.BLACK + 'Now let us enter your wall dimensions\n')
-
-        wall_length = input('Wall Length: \n')
-        wall_height = input('Wall height: \n')
-
-        x=float(wall_length)
-        y=float(wall_height)
-
-        sqrd_m = x * y
-
-        #class wall_dimensions:
-         #   def m() = sqrd_m:
-
-
-        print(f'Great! you have {sqrd_m} m2\n')
+        
+        meter_square_calc()
+    
+        print(f'Great! you have {area} m2\n')
         
         print(tabulate(stud_table,stud_headers,tablefmt='github\n'))
         stud = input('Choose a stud ref from the table above: \n')
@@ -88,12 +78,21 @@ def calc_wall(welcome):
         print(f'You need {number_studs} number of studs and {track}lm of track')
         break
 
-def linings(calc_wall):
+def meter_square_calc():
     while True:
-        linings_measure = m()
-        print(linings_measure)
-        
+        wall_length = input('Wall Length: \n')
+        wall_height = input('Wall height: \n')
 
+        x=float(wall_length)
+        y=float(wall_height)
+
+        sqrd_m = x * y
+        print(sqrd_m)
+
+        area = sqrd_m
+        break
+    return area
+    return calc_wall
 
 """
 TO DO:
@@ -117,6 +116,5 @@ def main():
     """
     welcome()
     calc_wall(welcome)
-    linings(calc_wall)
-
+    
 main()
