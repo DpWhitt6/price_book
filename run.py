@@ -13,9 +13,11 @@ stud_headers= ['Ref', 'Material', 'Thickness', 'Cost m2']
 stud_table = [[1,'Timber','50mm',7],[2,'Timber','70mm',8.5],[3,'Timber','90mm',10],\
     [4,'Timber','150mm',12.5],[5,'Steel','70mm',7],[6,'Steel','90mm',8.5],[7,'Steel','146mm',12.5]]
 
-centers_headers = ['Ref','Stud Centers','M']
-centers_table = [[1,'300mm',0.3],[1,'450mm',0.45],[1,'600mm',0.6]]
-
+import inquirer
+centers = [
+    inquirer.List('centers', message='What centers do you require (m)?',\
+        choices=[0.3,0.45,0.6]),
+]
 
 #print(tabulate(lining_table,lining_headers,tablefmt="github"))
 
@@ -32,7 +34,7 @@ def welcome():
         print('Let us start bying giving your project a name (Atleast 1 character) \n')
         
         input_name = input('Please enter your project name: \n') 
-        while (input_name) < str(1):
+        while (len(input_name)<1):
             print(Fore.RED + 'Sorry, you need to enter a project name to proceed.')
             input_name = input(Fore.BLACK + 'Please enter your project name: \n')
             
@@ -41,31 +43,34 @@ def welcome():
         break
     return True 
 
-def calc_wall(welcome):
+def wall_build_up():
     """
     User to input two measurements Length and Height (Max height: 10m)
     output to be L X H = M2 
     """
     while True:
         print(Fore.BLACK + 'Now let us enter your wall dimensions\n')
-        
-        meter_square_calc()
-    
-        print(f'Great! you have {area} m2\n')
-        
+        wall_area, wall_length = meter_square_calc()
+
+        print(f'Great! you have {wall_area} m2\n')
+
         print(tabulate(stud_table,stud_headers,tablefmt='github\n'))
         stud = input('Choose a stud ref from the table above: \n')
-        #for s in range(len(stud_table.column(1))):
-               # print(stud_table.column(2))
 
-        stud_centers = input('What centers are your studs at?  \n')
-        c = float(stud_centers)
+        zero_index_stud = int(stud)-1
+        cost_of_stud = float(stud_table[zero_index_stud][3])
+
+        #Return stud type based on reference.
+
+        answers = inquirer.prompt(centers)
+        cntrs=answers['centers']
+        print(cntrs)
         """
         Loop through stud columns needed and return column 2 and 3 in 
         below print statement. 
         """ 
-        studs = math.ceil(x/c)
-        track = x*2.0
+        studs = math.ceil(wall_length/cntrs)
+        track = wall_length*2.0
 
         doors = input('How many doors are in the wall?\n')
         d = float(doors)
@@ -79,20 +84,13 @@ def calc_wall(welcome):
         break
 
 def meter_square_calc():
-    while True:
-        wall_length = input('Wall Length: \n')
-        wall_height = input('Wall height: \n')
+    #while True: -To be reintroduce for validation 
+    wall_length = float(input('Wall Length: \n'))
+    wall_height = float(input('Wall height: \n'))
 
-        x=float(wall_length)
-        y=float(wall_height)
+    area = wall_length * wall_height
+    return area,wall_length
 
-        sqrd_m = x * y
-        print(sqrd_m)
-
-        area = sqrd_m
-        break
-    return area
-    return calc_wall
 
 """
 TO DO:
@@ -115,6 +113,7 @@ def main():
     Run all program functions
     """
     welcome()
-    calc_wall(welcome)
+    wall_build_up()
+    
     
 main()
