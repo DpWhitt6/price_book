@@ -13,15 +13,11 @@ stud_headers= ['Ref', 'Material', 'Thickness', 'Cost m2']
 stud_table = [[1,'Timber','50mm',7],[2,'Timber','70mm',8.5],[3,'Timber','90mm',10],\
     [4,'Timber','150mm',12.5],[5,'Steel','70mm',7],[6,'Steel','90mm',8.5],[7,'Steel','146mm',12.5]]
 
-insulation_headers = ['Selection','Cost m2']
-insulation_table = [['Yes',5.5],['No',0]]
-
 import inquirer
 centers = [
     inquirer.List('centers', message='What centers do you require (m)?',\
         choices=[0.3,0.45,0.6]),
 ]
-
 insulation = [
     inquirer.List('insulation',message='Do you want insulation?',\
         choices=['Yes','No']),
@@ -57,6 +53,9 @@ def wall_build_up():
     output to be L X H = M2 
     """
     while True:
+        cost=[]
+        
+
         print(Fore.BLACK + 'Now let us enter your wall dimensions\n')
         wall_area, wall_length = meter_square_calc()
 
@@ -69,19 +68,19 @@ def wall_build_up():
         cntrs= centers_answers['centers']
         doors = float(input('How many doors are in the wall?\n'))
         corners = float(input('How many corners are there?\n'))
-        #code keeps looping back to meter_square_calc
         studs = math.ceil(wall_length/cntrs)
         number_studs = studs+doors+corners
-        print(f'You need {number_studs} studs')
+        print(f'You need {number_studs} studs.\n')
+        cost.insert(1,f'Studs estimate = £{float(cost_of_studs*wall_area)}')
 
-        insulated_Wall = insulation()
-        try:
-         if insulated_Wall == "Yes":
-            wall_area * float(insulation_table[1])
-            print(insulated_Wall)
-        except:
-            print('no ins')
-        
+        insulated_wall,cost_of_insulation = insulations()
+        if insulated_wall == "Yes":
+            print(f'You need {wall_area} m2 of insulation\n')
+            cost.insert(1,f'Insulation estimate = £{float(cost_of_insulation*wall_area)}')
+        if insulated_wall == "No":
+            print('no insulation')
+        break
+            
 
 def meter_square_calc():
     #while True: -To be reintroduce for validation 
@@ -98,16 +97,17 @@ def stud_selector():
 
     zero_index_stud = int(stud)-1
     cost_of_stud = float(stud_table[zero_index_stud][3])
-
     return stud,cost_of_stud
 
-def insulation():
+def insulations():
     insulated_answers = inquirer.prompt(insulation)
-    insulated = answers['insulation']
+    insulated = insulated_answers['insulation']
+    cost_of_insulation = 5.5
+
     print(f'You have chosen {insulated}!')
-    return insulated
+    return insulated,cost_of_insulation
 
-
+    
 """
 TO DO:
 Add invalid input for naming purposes - Limit the number of characters
@@ -130,6 +130,6 @@ def main():
     """
     welcome()
     wall_build_up()
-    
-    
+    #insulations()
+
 main()
