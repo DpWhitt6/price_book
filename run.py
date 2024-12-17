@@ -22,6 +22,10 @@ insulation = [
     inquirer.List('insulation',message='Do you want insulation?',\
         choices=['Yes','No']),
 ]
+linings = [
+    inquirer.List('linings',message='Add a lining?',\
+        choices=['Yes','No']),
+]
 
 #print(tabulate(lining_table,lining_headers,tablefmt="github"))
 
@@ -107,6 +111,15 @@ def insulations():
     print(f'You have chosen {insulated}!')
     return insulated,cost_of_insulation
 
+def wall_linings():
+    
+    try:
+        linings_answer = inquirer.prompt(linings)
+        lngs_answr = linings_answer['linings']
+        if lngs_answr == 'Yes':
+            print(tabulate(lining_table,lining_headers,tablefmt='github\n'))
+
+
     
 """
 TO DO:
@@ -130,6 +143,5 @@ def main():
     """
     welcome()
     wall_build_up()
-    #insulations()
 
 main()
