@@ -83,6 +83,8 @@ def wall_build_up():
             cost.insert(1,f'Insulation estimate = £{float(cost_of_insulation*wall_area)}')
         if insulated_wall == "No":
             print('no insulation')
+
+        wall_linings()
         break
             
 
@@ -113,13 +115,40 @@ def insulations():
 
 def wall_linings():
     
-    try:
-        linings_answer = inquirer.prompt(linings)
-        lngs_answr = linings_answer['linings']
-        if lngs_answr == 'Yes':
-            print(tabulate(lining_table,lining_headers,tablefmt='github\n'))
+    linings_answer = inquirer.prompt(linings)
+    lngs_answr = linings_answer['linings']
+    if lngs_answr == 'Yes':
+        lining_quants = lining_options()
+    
+    print(tabulate(lining_table,lining_headers,tablefmt='github\n'))
+    if lngs_answr == 'No':
+        print('No wall linings needed')
+    one_lining = 0
+
+    while int(one_lining+1, one_lining <= lining_quants):
+        one_lining = input('Choose a lining ref from the table above: \n')
+        zero_index_lining = int(one_lining)-1
+        cost_of_stud = float(lining_table[zero_index_lining][4])
+
+    return lining_one,cost_of_stud
 
 
+    
+def lining_options():
+
+    lining_choices = input('How many linings would you like? (Please choose upto 6 linings):' )
+    numberoflinings = int(lining_choices)
+
+    while numberoflinings <1 or numberoflinings >6:
+        print(Fore.RED + 'Sorry, please choose a number between 1 and 6')
+        lining_choices = input(Fore.BLACK + 'How many linings would you like? (Please choose upto 6 linings):' )
+        break
+    numberoflinings >1 and numberoflinings <6
+    numberoflinings = int(lining_choices)
+    
+    print(numberoflinings)
+
+    return numberoflinings
     
 """
 TO DO:
@@ -144,4 +173,4 @@ def main():
     welcome()
     wall_build_up()
 
-main()
+main ()
