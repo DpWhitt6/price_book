@@ -39,11 +39,11 @@ def welcome():
         print(Style.BRIGHT + "Welcome to Price Book's Wall calculator \n")
         print('We aim to provide you with market rates (Average rates) and order quantities.\n')
         print('Allowing you to spend more time building than quoting\n')  
-        print('Let us start bying giving your project a name (Atleast 1 character) \n')
+        print('Let us start bying giving your project a name (1-50 characters) \n')
         
         input_name = input('Please enter your project name: \n') 
-        while (len(input_name)<1):
-            print(Fore.RED + 'Sorry, you need to enter a project name to proceed.')
+        while (len(input_name)<1 or len(input_name) >50):
+            print(Fore.RED + Style.BRIGHT + 'Sorry, you need to enter a project name to proceed.')
             input_name = input(Fore.BLACK + 'Please enter your project name: \n')
             
         project_name = Fore.GREEN + input_name.capitalize()
@@ -52,65 +52,78 @@ def welcome():
     return True 
 
 def wall_build_up():
-    """
-    User to input two measurements Length and Height (Max height: 10m)
-    output to be L X H = M2 
-    """
+ 
     while True:
         cost=[]
-        
 
         print(Fore.BLACK + 'Now let us enter your wall dimensions\n')
         wall_area, wall_length = meter_square_calc()
 
             
-        print(f'Great! you have {wall_area} m2\n')
+        print(Fore.GREEN +f'Great! you have {wall_area} m2\n')
         
         stud_calc,cost_of_studs = stud_selector()
         
         centers_answers = inquirer.prompt(centers)
         cntrs= centers_answers['centers']
-        doors = float(input('How many doors are in the wall?\n'))
-        corners = float(input('How many corners are there?\n'))
+        while True:
+            try:
+                doors = float(input(Fore.BLACK +'How many doors are in the wall?\n'))
+                corners = float(input(Fore.BLACK +'How many corners are there?\n'))
+                break
+            except ValueError:
+                print(Fore.RED + Style.BRIGHT +'Please enter numbers only')
+
         studs = math.ceil(wall_length/cntrs)
         number_studs = studs+doors+corners
-        print(f'You need {number_studs} studs.\n')
+        print(Fore.GREEN + f'You need {number_studs} studs and {wall_length * 2}lm of tracks\n')
         cost.insert(1,f'Studs estimate = £{float(cost_of_studs*wall_area)}')
 
         insulated_wall,cost_of_insulation = insulations()
         if insulated_wall == "Yes":
-            print(f'You need {wall_area} m2 of insulation\n')
+            print(Fore.GREEN + f'You need {wall_area} m2 of insulation\n')
             cost.insert(1,f'Insulation estimate = £{float(cost_of_insulation*wall_area)}')
         if insulated_wall == "No":
             print('no insulation')
 
-        wall_linings()
+        lining_quants =  wall_linings()
+        total_linings_wall = lining_quants * wall_area
+        print(Fore.GREEN + f' You need {total_linings_wall}m2 or {total_linings_wall/2.88} total number of boards in total and {wall_area}m2 per layer or {wall_area/2.88} number of boards per layer')
         break
             
 
 def meter_square_calc():
-    #while True: -To be reintroduce for validation 
-    wall_length = float(input('Wall Length: \n'))
-    wall_height = float(input('Wall height: \n'))
+    while True:
+        try:
+            wall_length = float(input(Fore.BLACK + 'Wall Length: \n'))
+            wall_height = float(input(Fore.BLACK +'Wall height: \n'))
+            break
+        except ValueError:
+            print(Fore.RED + Style.BRIGHT +'Please only enter numbers')
 
     area = wall_length * wall_height
     return area,wall_length
 
 def stud_selector():
     
-    print(tabulate(stud_table,stud_headers,tablefmt='github\n'))
-    stud = input('Choose a stud ref from the table above: \n')
-
-    zero_index_stud = int(stud)-1
-    cost_of_stud = float(stud_table[zero_index_stud][3])
-    return stud,cost_of_stud
+    print(Fore.BLACK + tabulate(stud_table,stud_headers,tablefmt='github\n'))
+    
+    while True:
+        try:
+            stud = input(Fore.BLACK + 'Choose a stud ref from the table above: \n')
+            zero_index_stud = int(stud)-1
+            cost_of_stud = float(stud_table[zero_index_stud][3])
+            return stud,cost_of_stud
+        except ValueError:
+            print(Fore.RED + Style.BRIGHT +'Please only enter numbers')
+        
 
 def insulations():
     insulated_answers = inquirer.prompt(insulation)
     insulated = insulated_answers['insulation']
     cost_of_insulation = 5.5
 
-    print(f'You have chosen {insulated}!')
+    print(Fore.GREEN + f'You have chosen {insulated}!')
     return insulated,cost_of_insulation
 
 def wall_linings():
@@ -120,36 +133,27 @@ def wall_linings():
     if lngs_answr == 'Yes':
         lining_quants = lining_options()
     
-    print(tabulate(lining_table,lining_headers,tablefmt='github\n'))
+    print(Fore.BLACK + tabulate(lining_table,lining_headers,tablefmt='github\n'))
     if lngs_answr == 'No':
-        print('No wall linings needed')
-    one_lining = 0
-
-    while int(one_lining+1, one_lining <= lining_quants):
-        one_lining = input('Choose a lining ref from the table above: \n')
-        zero_index_lining = int(one_lining)-1
-        cost_of_stud = float(lining_table[zero_index_lining][4])
-
-    return lining_one,cost_of_stud
-
+        print(Fore.GREEN + 'No wall linings needed')
+    return lining_quants
+   
 
     
 def lining_options():
+ # to be reviewed 
+    while True: 
+        try:
+            lining_choices = input(Fore.BLACK +'How many linings would you like? (Please choose upto 6 linings):' )
+            numberoflinings = int(lining_choices)
+            numberoflinings <1 and numberoflinings >6
+            print(numberoflinings)
+            return numberoflinings
+        except ValueError:
+            print(Fore.RED + 'Sorry, please choose a number between 1 and 6')
 
-    lining_choices = input('How many linings would you like? (Please choose upto 6 linings):' )
-    numberoflinings = int(lining_choices)
-
-    while numberoflinings <1 or numberoflinings >6:
-        print(Fore.RED + 'Sorry, please choose a number between 1 and 6')
-        lining_choices = input(Fore.BLACK + 'How many linings would you like? (Please choose upto 6 linings):' )
-        break
-    numberoflinings >1 and numberoflinings <6
-    numberoflinings = int(lining_choices)
     
-    print(numberoflinings)
 
-    return numberoflinings
-    
 """
 TO DO:
 Add invalid input for naming purposes - Limit the number of characters
@@ -173,4 +177,4 @@ def main():
     welcome()
     wall_build_up()
 
-main ()
+main()
