@@ -113,13 +113,13 @@ def get_wall_linings_quantities(wall_area, wall_length):
         lining_quants = lining_options()
         total_linings_wall = lining_quants * wall_area
         print(Fore.GREEN + f' You need {total_linings_wall}m2' +
-                         + 'or {total_linings_wall/2.88}' +
+                           f' or {total_linings_wall/2.88}' +
                            'total number of boards' +
-                           'in total and {wall_area}m2 per layer' +
-                           'or {wall_area/2.88} number of boards per layer')
+                           f' in total and {wall_area}m2 per layer' +
+                           ' or {wall_area/2.88} number of boards per layer')
 
-    print(Fore.BLACK + tabulate(lining_table, lining_headers, +
-                                tablefmt='github\n'))
+    print(Fore.BLACK +
+          tabulate(lining_table, lining_headers, tablefmt='github\n'))
     if lngs_answr == 'No':
         print(Fore.GREEN + 'No wall linings needed')
 
