@@ -1,32 +1,131 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Price Book - Order Calculations 
+A calculator that enables those DIYers to place orders like the professionals with confidence, making ordering materials easy. Unfourtunately this calcualtor can't making building the wall any easier. 
 
-Welcome,
+## Contents
+* [User Experience](#user-experience-ux)
+  * [User Stories](#user-stories)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
+* [Design](#design)
+  * [Wireframes](#wireframes)
 
-## Reminders
+* [Features](#features)
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+* [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 
-## Creating the Heroku app
+* [Deployment & Local Development](#deployment--local-development)
+  * [Deployment](#deployment)
+  * [Local Development](#local-development)
+    * [How to Fork](#how-to-fork)
+    * [How to Clone](#how-to-clone)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+* [Testing](#testing)
+  * [Manual Test](#manual-test)
+  * [Vaildation Test](#vaildation-test)
+  * [Auditing](#auditing)
+  * [Bugs](#bugs)
+  
+* [Credits](#credits)
+  * [Content](#content)
+ 
+  ---
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## User Experience (UX)
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### User:
+This game is desgined to be acheiveable for all with no prior experience or complicated gamepaly controls. This game would attract people looking for a simple and quick game of odds. 
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+#### User Stories:
 
-Connect your GitHub repository and deploy as normal.
+##### Client goals:
+* To enable people to experinece the challenge of the classic street game from where ever they are.
 
-## Constraints
+##### First Time Vistors:
+* Simple follow along layout navigates the user seemlessly through the game without any diversion.
+* Once the game recents the user will be able to ignore the 'sign up' form and go staright to the game play choices accelerating the users ability to jump straight into another game. 
+---
+## Design: 
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+### Flowchart:
+|||
+
+### Features:
+|Features||
+|--|--|
+|||
+
+
+### Accessibility:
+
+
+---
+## Technologies Used:
+
+### Languages Used:
+Python
+
+### Frameworks, Libraries & Programs used: 
+
+
+## Deployment & Local Development
+
+### Deployment:
+The site is deployed using GitHub Pages. Visit the deployed site [Trio Cup](https://dpwhitt6.github.io/Trio-Cup/) To deploy using GitHub pages:
+
+1. Login or Sign Up to GitHub.
+2. Open the project repository.
+3. Click on "Settings" on the navigation bar under the repository title.
+4. Click on "Pages" in the left hand navigation panel.
+5. Under "Source", choose which branch to deploy. This should be Main for newer repositories (older repositories may still use Master).
+6. Choose which folder to deploy from, usually "/root".
+7. Click "Save", then wait for it to be deployed. It can take some time for the page to be fully deployed.
+8. Your URL will be displayed above "Source".
+
+
+## Local Development:
+
+### How to Fork
+To fork the repository:
+
+Log in (or sign up) to Github.
+Go to the repository for this project, [Trio Cup](https://github.com/DpWhitt6/Trio-Cup).
+Click the Fork button in the top right corner.
+
+### How to Clone
+To clone the repository:
+
+Log in (or sign up) to GitHub.
+Go to the repository for this project, [Trio Cup](https://github.com/DpWhitt6/Trio-Cup).
+Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+## Testing:
+
+### Manual Test:
+|Manual Testing platform| |
+|--|--|
+|||
+
+### Vaildation Test:
+|Vaildation testing||
+|--|--|
+|||
+
+### Auditing:
+|Auditing||
+|--|--|
+|||
+
+### Bugs:
+|BUGS| Solution|
+|--|--|
+|||
 
 ---
 
-Happy coding!
+## Credits:
+### Content
+|Content | Credit |
+|||
