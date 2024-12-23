@@ -32,6 +32,9 @@ def welcome():
 
 
 def wall_meter_square_calc():
+    """
+    Calculates the total area of the wall.
+    """
     while True:
         try:
             wall_length = float(input(Fore.BLACK + 'Wall Length:\n'))
@@ -46,6 +49,9 @@ def wall_meter_square_calc():
 
 
 def get_stud_quantities(wall_length):
+    """
+    Calculates the amount of frame work required to build a wall.
+    """
 
     print(Fore.BLACK + tabulate(stud_table, stud_headers, tablefmt='github\n'))
 
@@ -87,6 +93,9 @@ def get_stud_quantities(wall_length):
 
 
 def get_insulations_quantites(wall_area):
+    """
+    Provide the option of insulation and total m2 required
+    """
 
     insulated_answers = inquirer.prompt(insulation)
     insulated = insulated_answers['insulation']
@@ -99,6 +108,9 @@ def get_insulations_quantites(wall_area):
 
 
 def get_wall_linings_quantities(wall_area, wall_length):
+    """
+    Provide the m2 and number of boards required to be ordered.
+    """
 
     linings_answer = inquirer.prompt(linings)
     lngs_answr = linings_answer['linings']
@@ -119,6 +131,9 @@ def get_wall_linings_quantities(wall_area, wall_length):
 
 
 def lining_options():
+    """
+    Show the common differing types of wall linings and record the choice
+    """
     while True:
         try:
             lining_choices = input(Fore.BLACK +
