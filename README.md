@@ -5,9 +5,6 @@ A calculator that enables those DIYers to place orders like the professionals wi
 * [User Experience](#user-experience-ux)
   * [User Stories](#user-stories)
 
-* [Design](#design)
-  * [Wireframes](#wireframes)
-
 * [Features](#features)
 
 * [Technologies Used](#technologies-used)
@@ -34,39 +31,33 @@ A calculator that enables those DIYers to place orders like the professionals wi
 ## User Experience (UX)
 
 ### User:
-This game is desgined to be acheiveable for all with no prior experience or complicated gamepaly controls. This game would attract people looking for a simple and quick game of odds. 
-
-#### User Stories:
+Home DIYers looking to build new walls in theirs homes.
 
 ##### Client goals:
-* To enable people to experinece the challenge of the classic street game from where ever they are.
+* To enable people to experience professional estimations without having the high costs associated with hiring someone todo it.
 
 ##### First Time Vistors:
 * Simple follow along layout navigates the user seemlessly through the game without any diversion.
-* Once the game recents the user will be able to ignore the 'sign up' form and go staright to the game play choices accelerating the users ability to jump straight into another game. 
+* Clear instructions.
 ---
-## Design: 
 
 ### Flowchart:
-|||
-
-### Features:
-|Features||
-|--|--|
-|||
-
-
-### Accessibility:
-
+![Flowchart](https://github.com/user-attachments/assets/bb09a82e-dc3f-412d-af26-43598c79727d)
 
 ---
+
 ## Technologies Used:
 
 ### Languages Used:
 Python
 
 ### Frameworks, Libraries & Programs used: 
-
+|Features||
+|--|--|
+|Inquirer|Pre-set selctions - Minimises the need for loops per stage|
+|Colorama|All users outputs shown in Green and all errors shown in Red|
+|Tabulate|Pre filled tables of information stored within the code|
+|Math| Python liabry to enable calculations|
 
 ## Deployment & Local Development
 
