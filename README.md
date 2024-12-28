@@ -3,9 +3,6 @@ A calculator that enables those DIYers to place orders like the professionals wi
 
 ## Contents
 * [User Experience](#user-experience-ux)
-  * [User Stories](#user-stories)
-
-* [Features](#features)
 
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
@@ -20,8 +17,6 @@ A calculator that enables those DIYers to place orders like the professionals wi
 * [Testing](#testing)
   * [Manual Test](#manual-test)
   * [Vaildation Test](#vaildation-test)
-  * [Auditing](#auditing)
-  * [Bugs](#bugs)
   
 * [Credits](#credits)
   * [Content](#content)
@@ -57,12 +52,12 @@ Python
 |Inquirer|Pre-set selctions - Minimises the need for loops per stage|
 |Colorama|All users outputs shown in Green and all errors shown in Red|
 |Tabulate|Pre filled tables of information stored within the code|
-|Math| Python liabry to enable calculations|
+|Math| Python library to enable calculations|
 
 ## Deployment & Local Development
 
 ### Deployment:
-The site is deployed using GitHub Pages. Visit the deployed site [Trio Cup](https://dpwhitt6.github.io/Trio-Cup/) To deploy using GitHub pages:
+The site is deployed using Heroku. Visit the deployed site  To deploy using GitHub pages:
 
 1. Login or Sign Up to GitHub.
 2. Open the project repository.
@@ -97,26 +92,23 @@ Type 'git clone' into the terminal and then paste the link you copied in step 3.
 ### Manual Test:
 |Manual Testing platform| |
 |--|--|
-|||
+|Welcome Page|![Welcome](https://github.com/user-attachments/assets/c4115799-38bf-4726-8d75-2c1541a2982b)|
+||![Welcome TroubleShoot](https://github.com/user-attachments/assets/8ecf866e-984b-44b9-b4e2-ffebc76a3b0e)|
+|Meter Squared Calculation|![m2](https://github.com/user-attachments/assets/a87ec0ad-c3c9-47c8-b6ab-80136d981499)|
+|Framing|![Studs](https://github.com/user-attachments/assets/a6c93a03-8c7f-4cc5-b54d-51b4e0953b6f)|
+|Insulation|![Insulation](https://github.com/user-attachments/assets/746efc46-e267-4225-b199-a0cf95b7f9af)|
+|Linings|![Linings](https://github.com/user-attachments/assets/ac2d8b77-2adf-4f40-813c-c4c722cf5b90)|
 
 ### Vaildation Test:
-|Vaildation testing||
-|--|--|
-|||
 
-### Auditing:
-|Auditing||
-|--|--|
-|||
-
-### Bugs:
-|BUGS| Solution|
-|--|--|
-|||
+![Python Checker](https://github.com/user-attachments/assets/49467bd8-b5c6-47f1-b3d5-31b4d101ee2b)
 
 ---
 
 ## Credits:
 ### Content
 |Content | Credit |
+|inquirer documentation|https://python-inquirer.readthedocs.io/en/latest/installation.html|
+|pypi.org|https://pypi.org/project/colorama/|
+|pypi.org|https://pypi.org/project/tabulate/|
 |||
