@@ -72,6 +72,9 @@ def get_stud_quantities(wall_length):
 
         
     while True:
+        """
+        Calculates additional studs required in wall per door frame  
+        """
         try:
             doors = float(input(Fore.BLACK + 'How many doors are in the wall?'
                                 + '\n'))
@@ -79,6 +82,9 @@ def get_stud_quantities(wall_length):
         except ValueError:
             print(Fore.RED + Style.BRIGHT + 'Please only enter numbers')
     while True:
+        """
+        Calculates additional studs required in wall per corner  
+        """
         try:
             corners = float(input(Fore.BLACK +
                                   'How many corners are there?\n'))
