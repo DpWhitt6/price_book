@@ -57,17 +57,11 @@ Python
 ## Deployment & Local Development
 
 ### Deployment:
-The site is deployed using Heroku. Visit the deployed site  To deploy using GitHub pages:
+The site is deployed using Heroku. Visit the deployed site [Price Book](https://price-book-wall-measure-76240d04b6ab.herokuapp.com/) To deploy using Heroku pages:
 
-1. Login or Sign Up to GitHub.
+1. Login or Sign Up to Heroku.
 2. Open the project repository.
-3. Click on "Settings" on the navigation bar under the repository title.
-4. Click on "Pages" in the left hand navigation panel.
-5. Under "Source", choose which branch to deploy. This should be Main for newer repositories (older repositories may still use Master).
-6. Choose which folder to deploy from, usually "/root".
-7. Click "Save", then wait for it to be deployed. It can take some time for the page to be fully deployed.
-8. Your URL will be displayed above "Source".
-
+3. Click on "Open App"
 
 ## Local Development:
 
@@ -75,14 +69,14 @@ The site is deployed using Heroku. Visit the deployed site  To deploy using GitH
 To fork the repository:
 
 Log in (or sign up) to Github.
-Go to the repository for this project, [Trio Cup](https://github.com/DpWhitt6/Trio-Cup).
+Go to the repository for this project, [Price Book](https://github.com/DpWhitt6/price_book/deployments).
 Click the Fork button in the top right corner.
 
 ### How to Clone
 To clone the repository:
 
 Log in (or sign up) to GitHub.
-Go to the repository for this project, [Trio Cup](https://github.com/DpWhitt6/Trio-Cup).
+Go to the repository for this project, [Price Book](https://github.com/DpWhitt6/price_book/deployments).
 Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
@@ -108,6 +102,7 @@ Type 'git clone' into the terminal and then paste the link you copied in step 3.
 ## Credits:
 ### Content
 |Content | Credit |
+|--|--|
 |inquirer documentation|https://python-inquirer.readthedocs.io/en/latest/installation.html|
 |pypi.org|https://pypi.org/project/colorama/|
 |pypi.org|https://pypi.org/project/tabulate/|
