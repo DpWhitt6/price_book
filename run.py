@@ -144,7 +144,7 @@ def lining_options():
         try:
             lining_choices = input(Fore.BLACK +
                                    'How many linings would you like?' +
-                                   '(Please choose upto 6 linings):')
+                                   '(Please choose upto 6 linings):\n')
             numberoflinings = int(lining_choices)
             if numberoflinings >= 1 and numberoflinings <= 6:
                 print(numberoflinings)
