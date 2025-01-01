@@ -27,7 +27,7 @@ def welcome():
 
         project_name = Fore.GREEN + input_name.capitalize()
         print(Style.BRIGHT + 'Great you have named your Project' +
-                             f'{project_name}\n')
+                             f' {project_name}\n')
         break
     return True
 
@@ -61,8 +61,8 @@ def get_stud_quantities(wall_length):
 
     while True:
         try:
-            stud = int(input(Style.BRIGHT + Fore.BLACK +
-                             + 'Choose a stud ref from the table above:\n'))
+            stud = int(input(Style.BRIGHT + Fore.BLACK
+                             + 'Choose a stud ref from the table above: \n'))
             if stud >= 1 and stud <= 7:
                 zero_index_stud = int(stud)-1
                 centers_answers = inquirer.prompt(centers)
@@ -79,7 +79,7 @@ def get_stud_quantities(wall_length):
         Calculates additional studs required in wall per door frame
         """
         try:
-            doors = float(input(Style.BRIGHT + Fore.BLACK +
+            doors = float(input(Style.BRIGHT + Fore.BLACK
                                 + 'How many doors are in the wall? \n'))
             break
         except ValueError:
@@ -89,8 +89,8 @@ def get_stud_quantities(wall_length):
         Calculates additional studs required in wall per corner
         """
         try:
-            corners = float(input(Fore.BLACK +
-                                  'How many corners are there?\n'))
+            corners = float(input(Fore.BLACK
+                                  + 'How many corners are there?\n'))
             break
         except ValueError:
             print(Fore.RED + Style.BRIGHT + 'Please only enter numbers')
@@ -167,7 +167,7 @@ def main():
     """
     welcome()
 
-    print(Fore.BLACK + Style.BRIGHT +
+    print(Style.RESET_ALL +
           'Now let us enter your wall dimensions\n')
     wall_area, wall_length = wall_meter_square_calc()
 
