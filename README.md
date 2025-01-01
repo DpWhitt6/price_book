@@ -1,6 +1,9 @@
 # Price Book - Order Calculations 
 A calculator that enables those DIYers to place orders like the professionals with confidence, making ordering materials easy. Unfourtunately this calcualtor can't making building the wall any easier. 
 
+![image](https://github.com/user-attachments/assets/6bb75043-d992-4539-b170-e146108a2595)
+
+
 ## Contents
 * [User Experience](#user-experience-ux)
 
@@ -11,8 +14,6 @@ A calculator that enables those DIYers to place orders like the professionals wi
 * [Deployment & Local Development](#deployment--local-development)
   * [Deployment](#deployment)
   * [Local Development](#local-development)
-    * [How to Fork](#how-to-fork)
-    * [How to Clone](#how-to-clone)
 
 * [Testing](#testing)
   * [Manual Test](#manual-test)
@@ -63,24 +64,6 @@ The site is deployed using Heroku. Visit the deployed site [Price Book](https://
 2. Open the project repository.
 3. Click on "Open App"
 
-## Local Development:
-
-### How to Fork
-To fork the repository:
-
-Log in (or sign up) to Github.
-Go to the repository for this project, [Price Book](https://github.com/DpWhitt6/price_book/deployments).
-Click the Fork button in the top right corner.
-
-### How to Clone
-To clone the repository:
-
-Log in (or sign up) to GitHub.
-Go to the repository for this project, [Price Book](https://github.com/DpWhitt6/price_book/deployments).
-Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
-Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
-Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
-
 ## Testing:
 
 ### Manual Test:
@@ -93,8 +76,13 @@ Type 'git clone' into the terminal and then paste the link you copied in step 3.
 |Insulation|![Insulation](https://github.com/user-attachments/assets/746efc46-e267-4225-b199-a0cf95b7f9af)|
 |Linings|![Linings](https://github.com/user-attachments/assets/ac2d8b77-2adf-4f40-813c-c4c722cf5b90)|
 
+### Bugs:
+|Bug|Solution|
+|--|--|
+|Error occurring when linking lines of code to fit in the line lengths required|Removed double use of '+'|
+|Error Linking outputs from each function|Calling function and outputs correctly|
+|Remaining Bugs|All Bugs have been squashed|
 ### Vaildation Test:
-
 ![Python Checker](https://github.com/user-attachments/assets/49467bd8-b5c6-47f1-b3d5-31b4d101ee2b)
 
 ---
